@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/echarts.css">
+</head>
+<body>
+    <div class="shu1">
+        <div class="hearden"> 西安各方面数据</div>
+    </div>
+<!-- ----------------- -->
+    <div class="shu2">
+        <div class="one">
+            <div  id="main"> </div>
+
+        </div>
+        <div class="five">
+            <div id="stas" ></div>
+        </div>
+      
+        <div class="fro">
+                <div id="areas"  ></div>
+            </div>
+    </div>
+    <div class="pen">
+        <div class="penss">
+            <span>西安各个区面积</span>
+        </div>
+        <ul class="uls">
+            <li>
+                <span>1</span>
+                <span>雁塔区</span>
+                <span>230011</span>
+            </li>
+            <li>
+                <span>2</span>
+                <span>未央区</span>
+                <span>32011</span>
+            </li>
+            <li>
+                <span>3</span>
+                <span>莲湖区</span>
+                <span>24011</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>新市区</span>
+                <span>524011</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>新市区</span>
+                <span>524011</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>新市区</span>
+                <span>524011</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>新市区</span>
+                <span>524011</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>新市区</span>
+                <span>524011</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>新市区</span>
+                <span>524011</span>
+            </li>
+            <li>
+                <span>4</span>
+                <span>新市区</span>
+                <span>524011</span>
+            </li>
+        </ul>
+    </div>
+<!-- ------------- -->
+    <div class="shu3">
+            <div class="three">
+                    <div id="ages" ></div>
+                </div>
+        
+        <div class="two">
+            <div id="min2"  ></div>   
+        </div>
+    </div>
+<!-- -----------------     -->
+    <div class="shu4">   
+        <div class="sex">
+            <div id="ditu"></div>
+        </div>
+    </div>
+    <div id="chart_1">
+
+    </div>
+    <div id="chart_2">
+
+    </div>
+    <div id="chart_3">
+
+    </div>
+</body>
+</html>
+<!-- <script src="js/jquery-1.8.3.min.js"></script> -->
+<script src="js/echarts.js"></script>
+<script src="js/china.js"></script>
+<script>
+    //西安气温
+    var mucharts = echarts.init(document.getElementById("main"));
+
+    option = {
+        title : {
+            text: '西安气温',
+            subtext: '模拟数据',
+            textStyle: {
+                color:'white',
+            }
+        },
+        // color:["#ffffff","red"],
+        tooltip : {
+            trigger: 'axis'
+        },
+        legend: {
+            data:['最高气温','最低气温'],
+            textStyle: {
+                color:'#eee',
+            }
+        },
+        toolbox: {  //工具对象
+            show : true,
+            feature : {
+                // mark : {show: true},
+                // dataView : {show: true, readOnly: false},
+                magicType : {show: true, type: ['line', 'bar']},
+                // restore : {show: true},   //刷新
+                // saveAsImage : {show: true} //图片形式下载到桌面
+            }
+        },
+        calculable : true,
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : true,
+                data : ['周一','周二','周三','周四','周五','周六','周日'],
+                axisLabel: {
+                    textStyle: {
+                        color: "#fff",//坐标值得具体的颜色
+
+                    }
+                }
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                axisLabel : {
+                    formatter: '{value} °C',
+
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: "#fff",//坐标值得具体的颜色
+
+                    }
+                }
+            }
+        ],
+        series : [
+            {
+                name:'最高气温',
+                type:'line',
+                data:[11, 11, 15, 13, 12, 13, 10],
+                markPoint : {
+                    data : [
+                        {type : 'max', name: '最大值'},
+                        {type : 'min', name: '最小值'}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name: '平均值'}
+                    ]
+                }
+            },
+            {
+                name:'最低气温',
+                type:'line',
+                data:[1, -2, 2, 5, 3, 2, 0],
+                markPoint : {
+                    data : [
+                        {name : '周最低', value : -2, xAxis: 1, yAxis: -1.5}
+                    ]
+                },
+                markLine : {
+                    data : [
+                        {type : 'average', name : '平均值'}
+                    ]
+                }
+            }
+        ]
+    };
+    mucharts.setOption(option);
+    //西安人口年龄比例
+    let myChart = echarts.init(document.getElementById('min2'));
+    option = {
+        title : {
+            text: '西安人口年龄',
+            // subtext: '纯属虚构',
+            x:'left',
+            textStyle: {
+                color:'#eee',
+            }
+
+        },
+        tooltip : {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        color:['#d0202d', '#327b81','#fdcd15','#e57d28','#b4c332'],
+        legend: {
+            orient: 'vertical',
+            left: 'left',
+            top: 40,
+            textStyle: {
+                color:'white',
+            },
+            data: ['0-10岁', '10-20岁', '20-35岁', '35-50岁', '50-70岁','70-100岁'],
+        },
+        series : [
+        {
+            name: '西安人口年龄分析',
+            type: 'pie',
+            radius : '60%',
+            center: ['50%', '65%'],
+            data:[
+                {value:335, name:'0-10岁'},
+                {value:335, name:'10-20岁'},
+                {value:310, name:'50-70岁'},
+                {value:234, name:'20-35岁'},
+                {value:135, name:'70-100岁'},
+                {value:1548, name:'35-50岁'},
+                {value:1548, name:'20-35岁'}
+            ],
+            itemStyle: {
+                emphasis: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+        }
+    ]
+};
+    myChart.setOption(option);
+    // 西安人口外人占比
+    let myCharts=echarts.init(document.getElementById("ages"));
+    option = {
+        title : {
+            text: '西安人口外人占比',
+            textStyle: {
+                color:'white',
+            }
+        },
+        tooltip: {
+            // trigger: 'item',
+            formatter: "{a} <br/>{b}: {c} ({d}%)"
+        },
+        color:['#ca202d','#21747a','#facc1f','#e27230','#adc531','#fc845f'],
+        legend: {
+            orient: 'vertical',
+            top: 65,
+            textStyle: {
+                color:'white',
+            },
+            x: 'left',
+            data:['18-30','31-40','41-50','51-60','65岁以上','未标明']
+        },
+        series: [
+            {
+                name:'西安人口外人占比',
+                type:'pie',
+                center:['50%','68%'],
+                radius: ['30%', '60%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '18',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data:[
+                    {value:335, name:'18-30'},
+                    {value:310, name:'31-40'},
+                    {value:234, name:'41-50'},
+                    {value:135, name:'51-60'},
+                    {value:135, name:'65岁以上'},
+                    {value:1548, name:'未标明'}
+                ]
+            }
+        ]
+    };
+    myCharts.setOption(option);
+    //工资分布
+    let limit=echarts.init(document.getElementById("areas"));
+    option = {
+        title : {
+            text: '工资分布',
+            subtext: '*15',
+            textStyle: {
+                color:'white',
+            }
+        },
+        // color:["#ffffff","red"],
+        tooltip : {
+            trigger: 'axis'
+        },
+        color: ['#fed873'],
+        tooltip : {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '20%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                data : ['16-24', '24-30', '30-35', '35-40', '40-45', '45-50', '50-60'],
+                axisTick: {
+                    alignWithLabel: true
+                },
+                axisLabel: {
+                    textStyle: {
+                        color: "#fed873",//坐标值得具体的颜色
+
+                    }
+                }
+
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value',
+                data: ['福田','南山','罗湖','盐田','龙华','宝安','龙岗'],
+                axisLabel: {
+                    textStyle: {
+                        color: "#fed873"
+                    }
+                },
+                splitLine: {
+                    show: true,
+                    lineStyle:{
+                        color: ['white'],
+                        width: 1,
+                        type: 'dashed'
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        type: 'dashed',
+                        color:'#fff',
+                        width:'0'
+                    }
+                },
+            }
+        ],
+        series : [
+            {
+                name:'工资分布',
+                type:'bar',
+                barWidth: '60%',
+                data:[100, 152, 200, 334, 390, 330, 220]
+            }
+        ]
+    };
+    limit.setOption(option);
+    // 交通
+    let mactor=echarts.init(document.getElementById("stas"));
+    option = {
+        title : {
+            text: '西安交通高峰',
+            textStyle: {
+                color:'white',
+            }
+        },
+        color: ['#4ae735'],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                type : 'line' ,     // 默认为直线，可选为：'line' | 'shadow'
+                lineStyle:{
+                    color:['#025fb6']
+                }
+            }
+        },
+        xAxis: {
+            type: 'category',
+            data: ['6:00-9:00', '10:00-12:00', '13:00-15:00', '16:00-20:00', '21:00-2400'],
+            axisLabel: {
+                textStyle: {
+                    color: "#4ae735",//坐标值得具体的颜色
+
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    type: 'solid',
+                    color: '#025fb6',//左边线的颜色
+                    width:'1'//坐标线的宽度
+                }
+            },
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                textStyle: {
+                    color: "#4ae735",//坐标值得具体的颜色
+
+                }
+            },
+            axisLine: {
+                lineStyle: {
+                    type: 'solid',
+                    color: '#025fb6',//左边线的颜色
+                    width:'1'//坐标线的宽度
+                }
+            },
+        },
+        series: [{
+            name:'人次',
+            data: [800, 300, 500, 800, 300],
+            type: 'line',
+            smooth: true
+        }]
+
+    };
+    mactor.setOption(option);
+    // 人口来源分析
+    let ditu=echarts.init(document.getElementById("ditu"));
+    function randomData() {
+        return Math.round(Math.random()*1000);
+    }
+    option = {
+        title: {
+            text: '人口来源分析',
+            left: 'center',
+            top:50,
+            textStyle: {
+                color: "white",
+                fontSize: 18,
+                fontWeight: 100,
+            }
+        },
+        tooltip: {
+            trigger: 'item'
+        },
+        visualMap: {
+            min: 100,
+            max: 1000,
+            show:false,
+            inRange: {
+                color: ['#fffe03', '#E09107', '#A3E00B','#0e94eb','#70bcf0']
+            },
+
+        },
+        series: [
+            {
+                name: '人口来源分析',
+                type: 'map',
+                mapType: 'china',
+                zoom:1.1,
+                itemStyle: {
+                    normal: { label: { show: false } },
+                    emphasis: {                 // 也是选中样式
+                        borderWidth:2,
+                        borderColor:'#fff',
+                        color: '#32cd32',
+                        label: {
+                            show: true,
+                            textStyle: {
+                                color: 'red'
+                            }
+                        }
+                    }
+                },
+                textStyle: {
+                    color: "white",
+                    fontSize: 18,
+                    fontWeight: 100,
+                },  
+                visualMap: {           // 文本，默认为数值文本
+                    calculable: true,
+                    inRange: {
+                        color: ['#E0022B', '#E09107', '#A3E00B','#0e94eb','#6cc0e5']
+                    }
+                },
+                roam: true,
+                label: {
+                    normal: {
+                        // show: true
+                    },
+                    emphasis: {
+                        show: true
+                    }
+                },
+                data:[
+                    {name: '北京',value: randomData() },
+                    {name: '天津',value: randomData() },
+                    {name: '上海',value: randomData() },
+                    {name: '重庆',value: randomData() },
+                    {name: '河北',value: randomData() },
+                    {name: '河南',value: randomData() },
+                    {name: '云南',value: randomData() },
+                    {name: '辽宁',value: randomData() },
+                    {name: '黑龙江',value: randomData() },
+                    {name: '湖南',value: randomData() },
+                    {name: '安徽',value: randomData() },
+                    {name: '山东',value: randomData() },
+                    {name: '新疆',value: randomData() },
+                    {name: '江苏',value: randomData() },
+                    {name: '浙江',value: randomData() },
+                    {name: '江西',value: randomData() },
+                    {name: '湖北',value: randomData() },
+                    {name: '广西',value: randomData() },
+                    {name: '甘肃',value: randomData() },
+                    {name: '山西',value: randomData() },
+                    {name: '内蒙古',value: randomData() },
+                    {name: '陕西',value: randomData() },
+                    {name: '吉林',value: randomData() },
+                    {name: '福建',value: randomData() },
+                    {name: '贵州',value: randomData() },
+                    {name: '广东',value: randomData() },
+                    {name: '青海',value: randomData() },
+                    {name: '西藏',value: randomData() },
+                    {name: '四川',value: randomData() },
+                    {name: '宁夏',value: randomData() },
+                    {name: '海南',value: randomData() },
+                    {name: '台湾',value: randomData() },
+                    {name: '香港',value: randomData() },
+                    {name: '澳门',value: randomData() }
+                ]
+            },
+        ]
+    };
+    ditu.setOption(option);
+
+    // 基于准备好的dom，初始化echarts实例
+    var myChartww = echarts.init(document.getElementById('chart_1'));
+    option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c}万元"
+        },
+        legend: {
+            x: 'center',
+            y: '15%',
+            data: [ '莲湖区', '雁塔区', '未央区','新市区', '丈八沟区', '南窑头','秦皇岛','石家庄', '唐山'],
+            icon: 'circle',
+            textStyle: {
+                color: '#fff',
+            }
+        },
+        calculable: true,
+        series: [{
+            name: '',
+            type: 'pie',
+            //起始角度，支持范围[0, 360]
+            startAngle: 0,
+            //饼图的半径，数组的第一项是内半径，第二项是外半径
+            radius: [41, 100.75],
+            //支持设置成百分比，设置成百分比时第一项是相对于容器宽度，第二项是相对于容器高度
+            center: ['50%', '40%'],
+            //是否展示成南丁格尔图，通过半径区分数据大小。可选择两种模式：
+            // 'radius' 面积展现数据的百分比，半径展现数据的大小。
+            //  'area' 所有扇区面积相同，仅通过半径展现数据大小
+            roseType: 'area',
+            //是否启用防止标签重叠策略，默认开启，圆环图这个例子中需要强制所有标签放在中心位置，可以将该值设为 false。
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: true,
+                    formatter: '{c}万元'
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: true,
+                    length2: 1,
+                },
+                emphasis: {
+                    show: true
+                }
+            },
+            data: [{
+                    value: 900.58,
+                    name: '张家口',
+                    itemStyle: {
+                        normal: {
+                            color: '#f845f1'
+                        }
+                    }
+                },
+                {
+                    value: 1100.58,
+                    name: '承德',
+                    itemStyle: {
+                        normal: {
+                            color: '#ad46f3'
+                        }
+                    }
+                },
+                {
+                    value: 1200.58,
+                    name: '衡水',
+                    itemStyle: {
+                        normal: {
+                            color: '#5045f6'
+                        }
+                    }
+                },
+                {
+                    value: 1300.58,
+                    name: '邢台',
+                    itemStyle: {
+                        normal: {
+                            color: '#4777f5'
+                        }
+                    }
+                },
+                {
+                    value: 1400.58,
+                    name: '邯郸',
+                    itemStyle: {
+                        normal: {
+                            color: '#44aff0'
+                        }
+                    }
+                },
+                {
+                    value: 1500.58,
+                    name: '保定',
+                    itemStyle: {
+                        normal: {
+                            color: '#45dbf7'
+                        }
+                    }
+                },
+                {
+                    value: 1500.58,
+                    name: '莲湖区',
+                    itemStyle: {
+                        normal: {
+                            color: '#f6d54a'
+                        }
+                    }
+                },
+                {
+                    value: 1600.58,
+                    name: '雁塔区',
+                    itemStyle: {
+                        normal: {
+                            color: '#f69846'
+                        }
+                    }
+                },
+                {
+                    value: 1800,
+                    name: '未央区',
+                    itemStyle: {
+                        normal: {
+                            color: '#ff4343'
+                        }
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                },
+                {
+                    value: 0,
+                    name: "",
+                    itemStyle: {
+                        normal: {
+                            color: 'transparent'
+                        }
+                    },
+                    label: {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    }
+                }
+            ]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChartww.setOption(option);
+
+
+// 基于准备好的dom，初始化echarts实例
+        var myChartee = echarts.init(document.getElementById('chart_2'));
+        option = {
+            title: {
+                text: '本月犯罪统计',
+                top: 35,
+                left: 20,
+                textStyle: {
+                    fontSize: 18,
+                    color: '#fff'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)",
+
+            },
+            legend: {
+                right: 20,
+                top: 35,
+                data: ['罪犯', '正常'],
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            series: [{
+                name: '设备状态',
+                type: 'pie',
+                radius: ['0', '60%'],
+                center: ['50%', '60%'],
+                color: ['#e72325', '#98e002', '#2ca3fd'],
+                label: {
+                    normal: {
+                        formatter: '{b}\n{d}%'
+                    },
+
+                },
+                data: [{
+                        value: 1,
+                        name: '罪犯'
+                    },
+                    {
+                        value: 50,
+                        name: '正常',
+                        selected: true
+                    }
+                ]
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChartee.setOption(option);
+
+// 基于准备好的dom，初始化echarts实例
+        var myChartff = echarts.init(document.getElementById('chart_3'));
+        var data = {
+            id: 'multipleBarsLines',
+            title: '2018年前人口走向',
+            // legendBar: ['正面占比', '中立占比', '负面占比'],
+            symbol: '', //数值是否带百分号        --默认为空 ''
+            legendLine: ['同期对比'],
+            xAxis: ['一月', '二月', '三月', '四月', '五月', '六月'],
+            yAxis: [
+                [8, 10, 10, 11, 4, 13]
+            ],
+            lines: [
+                [10, 10, 9, 11, 7, 4]
+            ],
+            barColor: ['#3FA7DC', '#7091C4', '#5170A2'], //柱子颜色 必填参数
+            lineColor: ['#D9523F'], // 折线颜色
+
+        };
+        /////////////end/////////
+
+        var myData = (function test() {
+            var yAxis = data.yAxis || [];
+            var lines = data.lines || [];
+            var legendBar = data.legendBar || [];
+            var legendLine = data.legendLine || [];
+            var symbol = data.symbol || ' ';
+            var seriesArr = [];
+            var legendArr = [];
+            yAxis && yAxis.forEach((item, index) => {
+                legendArr.push({
+                    name: legendBar && legendBar.length > 0 && legendBar[index]
+                });
+                seriesArr.push({
+                    name: legendBar && legendBar.length > 0 && legendBar[index],
+                    type: 'bar',
+                    barGap: '0.5px',
+                    data: item,
+                    barWidth: data.barWidth || 12,
+                    label: {
+                        normal: {
+                            show: true,
+                            formatter: '{c}' + symbol,
+                            position: 'top',
+                            textStyle: {
+                                color: '#fff',
+                                fontStyle: 'normal',
+                                fontFamily: '微软雅黑',
+                                textAlign: 'left',
+                                fontSize: 11,
+                            },
+                        },
+                    },
+                    itemStyle: { //图形样式
+                        normal: {
+                            barBorderRadius: 4,
+                            color: data.barColor[index]
+                        },
+                    }
+                });
+            });
+
+            lines && lines.forEach((item, index) => {
+                legendArr.push({
+                    name: legendLine && legendLine.length > 0 && legendLine[index]
+                })
+                seriesArr.push({
+                    name: legendLine && legendLine.length > 0 && legendLine[index],
+                    type: 'line',
+                    data: item,
+                    itemStyle: {
+                        normal: {
+                            color: data.lineColor[index],
+                            lineStyle: {
+                                width: 3,
+                                type: 'solid',
+                            }
+                        }
+                    },
+                    label: {
+                        normal: {
+                            show: false, //折线上方label控制显示隐藏
+                            position: 'top',
+                        }
+                    },
+                    symbol: 'circle',
+                    symbolSize: 10
+                });
+            });
+
+            return {
+                seriesArr,
+                legendArr
+            };
+        })();
+
+        option = {
+            title: {
+                show: true,
+                top: '10%',
+                left: '3%',
+                text: data.title,
+                textStyle: {
+                    fontSize: 18,
+                    color: '#fff'
+                },
+                subtext: data.subTitle,
+                link: ''
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    var time = '';
+                    var str = '';
+                    for (var i of params) {
+                        time = i.name.replace(/\n/g, '') + '<br/>';
+                        if (i.data == 'null' || i.data == null) {
+                            str += i.seriesName + '：无数据' + '<br/>'
+                        } else {
+                            str += i.seriesName + '：' + i.data + symbol + '%<br/>'
+                        }
+
+                    }
+                    return time + str;
+                },
+                axisPointer: {
+                    type: 'none'
+                },
+            },
+            legend: {
+                right: data.legendRight || '30%',
+                top: '12%',
+                right: '5%',
+                itemGap: 16,
+                itemWidth: 10,
+                itemHeight: 10,
+                data: myData.legendArr,
+                textStyle: {
+                    color: '#fff',
+                    fontStyle: 'normal',
+                    fontFamily: '微软雅黑',
+                    fontSize: 12,
+                }
+            },
+            grid: {
+                x: 30,
+                y: 80,
+                x2: 30,
+                y2: 60,
+            },
+            xAxis: {
+                type: 'category',
+                data: data.xAxis,
+                axisTick: {
+                    show: false,
+                },
+
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#1AA1FD',
+                    },
+                    symbol: ['none', 'arrow']
+                },
+                axisLabel: {
+                    show: true,
+                    interval: '0',
+                    textStyle: {
+                        lineHeight: 16,
+                        padding: [2, 2, 0, 2],
+                        height: 50,
+                        fontSize: 12,
+                    },
+                    rich: {
+                        Sunny: {
+                            height: 50,
+                            // width: 60,
+                            padding: [0, 5, 0, 5],
+                            align: 'center',
+                        },
+                    },
+                    formatter: function (params, index) {
+                        var newParamsName = "";
+                        var splitNumber = 5;
+                        var paramsNameNumber = params && params.length;
+                        if (paramsNameNumber && paramsNameNumber <= 4) {
+                            splitNumber = 4;
+                        } else if (paramsNameNumber >= 5 && paramsNameNumber <= 7) {
+                            splitNumber = 4;
+                        } else if (paramsNameNumber >= 8 && paramsNameNumber <= 9) {
+                            splitNumber = 5;
+                        } else if (paramsNameNumber >= 10 && paramsNameNumber <= 14) {
+                            splitNumber = 5;
+                        } else {
+                            params = params && params.slice(0, 15);
+                        }
+
+                        var provideNumber = splitNumber; //一行显示几个字
+                        var rowNumber = Math.ceil(paramsNameNumber / provideNumber) || 0;
+                        if (paramsNameNumber > provideNumber) {
+                            for (var p = 0; p < rowNumber; p++) {
+                                var tempStr = "";
+                                var start = p * provideNumber;
+                                var end = start + provideNumber;
+                                if (p == rowNumber - 1) {
+                                    tempStr = params.substring(start, paramsNameNumber);
+                                } else {
+                                    tempStr = params.substring(start, end) + "\n";
+                                }
+                                newParamsName += tempStr;
+                            }
+
+                        } else {
+                            newParamsName = params;
+                        }
+                        params = newParamsName;
+                        return '{Sunny|' + params + '}';
+                    },
+                    color: '#1AA1FD',
+                },
+
+            },
+            yAxis: {
+                axisLine: {
+                    show: true,
+                    lineStyle: {
+                        color: '#1AA1FD',
+                    },
+                    symbol: ['none', 'arrow']
+                },
+                type: 'value',
+                axisTick: {
+                    show: false
+                },
+                axisLabel: {
+                    show: false
+                },
+                splitLine: {
+                    show: false,
+                    lineStyle: {
+                        color: '#1AA1FD',
+                        type: 'solid'
+                    },
+                }
+            },
+            series: myData.seriesArr
+        }
+        // 使用刚指定的配置项和数据显示图表。
+        myChartff.setOption(option);
+</script>

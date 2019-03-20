@@ -1,0 +1,214 @@
+@charset "UTF-8";
+/* CSS Document */
+body, p, dl, dd, ul, ol, li, div, h1, h2, h3, h4, h5, h6, form, input, table, tr, td, fieldset {
+  margin: 0;
+  padding: 0; }
+
+ul, ol {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: #1d1d1d; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "微软雅黑"; }
+
+img {
+  border: 0;
+  display: block; }
+
+input {
+  outline: none; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  background: url(../img/timg.jpg); }
+
+.header {
+  height: 80px;
+  position: relative;
+  padding-top: 13px;
+  font-size: 36px;
+  color: #00ffff;
+  text-align: center;
+  background: url(../img/bg.png) top center no-repeat; }
+  .header .access {
+    position: absolute;
+    right: 3%;
+    top: -18%; }
+    .header .access .button {
+      position: relative;
+      padding: 9px 20px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      outline: none;
+      font-size: 18px;
+      margin: 22px 16px; }
+    .header .access .type1 {
+      color: #00ffff; }
+      .header .access .type1::after, .header .access .type1::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 20%;
+        height: 20%;
+        border: 2px solid;
+        transition: all 0.6s ease;
+        border-radius: 2px; }
+      .header .access .type1::after {
+        bottom: 0;
+        right: 0;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: #566473;
+        border-right-color: #566473; }
+      .header .access .type1::before {
+        top: 0;
+        left: 0;
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+        border-top-color: #566473;
+        border-left-color: #566473; }
+      .header .access .type1:hover:after, .header .access .type1:hover:before {
+        width: 100%;
+        height: 100%; }
+
+.main {
+  padding: 0 30px 30px; }
+  .main .main_left, .main .main_middle, .main .main_right {
+    float: left;
+    width: 28%;
+    padding: 0 10px;
+    height: 800px; }
+    .main .main_left .border_container, .main .main_middle .border_container, .main .main_right .border_container {
+      position: relative;
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #54dcf2; }
+      .main .main_left .border_container .name_title, .main .main_middle .border_container .name_title, .main .main_right .border_container .name_title {
+        font-size: 20px;
+        color: #00ffff; }
+      .main .main_left .border_container #radar, .main .main_middle .border_container #radar, .main .main_right .border_container #radar {
+        height: 275px; }
+      .main .main_left .border_container #graduateyear, .main .main_middle .border_container #graduateyear, .main .main_right .border_container #graduateyear {
+        height: 192px; }
+      .main .main_left .border_container .three_pie, .main .main_middle .border_container .three_pie, .main .main_right .border_container .three_pie {
+        border-top: 1px solid #2c768a;
+        margin: -10px;
+        margin-top: 10px;
+        overflow: hidden; }
+        .main .main_left .border_container .three_pie li, .main .main_middle .border_container .three_pie li, .main .main_right .border_container .three_pie li {
+          float: left;
+          width: 50%;
+          border-right: 1px solid #2c768a; }
+        .main .main_left .border_container .three_pie li:last-child, .main .main_middle .border_container .three_pie li:last-child, .main .main_right .border_container .three_pie li:last-child {
+          border-right: none; }
+      .main .main_left .border_container #sexrate, .main .main_middle .border_container #sexrate, .main .main_right .border_container #sexrate,
+      .main .main_left .border_container #householdrate,
+      .main .main_middle .border_container #householdrate,
+      .main .main_right .border_container #householdrate {
+        height: 266px; }
+      .main .main_left .border_container .border_span, .main .main_middle .border_container .border_span, .main .main_right .border_container .border_span {
+        display: block;
+        position: absolute;
+        width: 35px;
+        height: 35px; }
+      .main .main_left .border_container .top_left, .main .main_middle .border_container .top_left, .main .main_right .border_container .top_left {
+        top: -4px;
+        left: -4px;
+        border-top: 3px solid #54dcf2;
+        border-left: 3px solid #54dcf2; }
+      .main .main_left .border_container .top_right, .main .main_middle .border_container .top_right, .main .main_right .border_container .top_right {
+        top: -4px;
+        right: -4px;
+        border-top: 3px solid #54dcf2;
+        border-right: 3px solid #54dcf2; }
+      .main .main_left .border_container .bottom_left, .main .main_middle .border_container .bottom_left, .main .main_right .border_container .bottom_left {
+        bottom: -4px;
+        left: -4px;
+        border-bottom: 3px solid #54dcf2;
+        border-left: 3px solid #54dcf2; }
+      .main .main_left .border_container .bottom_right, .main .main_middle .border_container .bottom_right, .main .main_right .border_container .bottom_right {
+        bottom: -4px;
+        right: -4px;
+        border-bottom: 3px solid #54dcf2;
+        border-right: 3px solid #54dcf2; }
+  .main .main_middle {
+    float: left;
+    width: 44%;
+    padding: 0 10px;
+    height: 800px; }
+    .main .main_middle #mapadd {
+      height: 304px; }
+    .main .main_middle .number_show {
+      position: absolute;
+      top: 20%;
+      right: 5%; }
+      .main .main_middle .number_show li {
+        line-height: 25px; }
+      .main .main_middle .number_show .span_name {
+        font-size: 14px;
+        color: #fffd51; }
+      .main .main_middle .number_show .span_number_show {
+        font-size: 18px;
+        color: #54b5b5;
+        font-style: italic; }
+    .main .main_middle .teacher_pie {
+      border-bottom: 1px solid #2c768a;
+      margin: -10px;
+      margin-bottom: 0; }
+      .main .main_middle .teacher_pie li {
+        float: left;
+        width: 50%;
+        border-right: 1px solid #2c768a; }
+        .main .main_middle .teacher_pie li .name_title {
+          padding-left: 10px;
+          padding-top: 10px; }
+        .main .main_middle .teacher_pie li #courserate,
+        .main .main_middle .teacher_pie li #professionrate {
+          height: 200px; }
+      .main .main_middle .teacher_pie li:last-child {
+        border-right: none; }
+    .main .main_middle #changedetail {
+      height: 229px; }
+  .main .main_right .table {
+    margin-top: 6px;
+    text-align: center;
+    margin-bottom: 0;
+    width: 100%; }
+    .main .main_right .table thead tr th {
+      width: 20%;
+      border-bottom: 1px solid #0f4075;
+      padding: 2px 8px;
+      text-align: center;
+      color: #419aff;
+      font-size: 12px;
+      font-weight: normal;
+      border-top: 1px solid #0f4075 !important; }
+    .main .main_right .table tbody tr td {
+      padding: 1px 8px;
+      font-size: 12px;
+      border: none;
+      color: #fff; }
+      .main .main_right .table tbody tr td:nth-child(2) {
+        color: #e9aa00; }
+      .main .main_right .table tbody tr td:nth-child(3) {
+        color: #53bf18; }
+      .main .main_right .table tbody tr td:nth-child(4) {
+        color: #f9504a; }
+      .main .main_right .table tbody tr td:nth-child(5) {
+        color: #12f0e9; }
+    .main .main_right .table tbody tr:nth-child(2n) {
+      background: #1d2a42; }
+    .main .main_right .table tbody tr:hover {
+      background: #1d2a42; }
+  .main .main_right #juniorservice {
+    height: 190px; }
+  .main .main_right #edubalance {
+    height: 203px; }

@@ -1,0 +1,53 @@
+body, p, dl, dd, ul, ol, li, div, h1, h2, h3, h4, h5, h6, form, input, table, tr, td {
+  margin: 0;
+  padding: 0; 
+}
+aside{
+	position: absolute;
+	top: 180px;
+	left: 1050px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	z-index: 1;
+	margin: 20px;
+}
+aside:first-child{
+	position: absolute;
+	left: 80px;
+	top: 280px;
+}
+aside a{
+	font-family: "华文行楷";
+	color: burlywood;
+	text-decoration: none;
+	font-size: 24px;
+	display: flex;
+}
+aside a mark{
+	background: none;
+	font-family: "华文行楷";
+	color: burlywood;
+	font-size: 24px;
+	display: none;
+	animation: jt_ani 1.5s infinite linear;
+}
+@keyframes jt_ani{
+	0% {opacity: 1;font-size: 24px;color: black;}
+	50% {opacity: 0;font-size: 12px; color: white;}
+	100% {opacity: 1;font-size: 24px; color: black;}
+}
+/*@keyframes jt_ani{
+	from {opacity: 1;font-size: 12px;color: black;}
+	to {opacity: 0;font-size: 24px; color: white;}
+}*/
+aside a:hover{
+	color: orange;
+	font-weight: 900;
+}
+aside a:hover mark{
+	display: block;
+	color: orange;
+	font-weight: 900;
+}
+.container{}

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="css/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="css/login.css">
+    <title>登录</title>
+</head>
+<body>
+<!-- header -->
+<header>
+    <div class="header">
+        <a href="#">PRODUCT ADMIN</a>
+        <div class="hea_center">
+            <a href="index.html">
+                <i class="iconfont icon-dashboard"></i>
+                <p>Dashboard</p>
+            </a>
+            <div class="samea">
+                <i class="iconfont icon-report"></i>
+                <p>Reports&nbsp;<i class="iconfont icon-xia"></i></p>
+                <div class="show">
+                    <a href="#">Daily Report</a>
+                    <a href="#">Weekly Report</a>
+                    <a href="#">Yearly Report</a>
+                </div>
+            </div>
+            <a href="products.html">
+                <i class="iconfont icon-gouwuche"></i>
+                <p>Products</p>
+            </a>
+            <a href="#">
+                <i class="iconfont icon-account-outline"></i>
+                <p>Accounts</p>
+            </a>
+            <div class="samea">
+                <i class="iconfont icon-shezhi1"></i>
+                <p>Settings&nbsp;<i class="iconfont icon-xia"></i></p>
+                <div class="show">
+                    <a href="#">Ptofile</a>
+                    <a href="#">Billing</a>
+                    <a href="#">Customize</a>
+                </div>
+            </div>
+        </div>
+        <div class="hea_right">
+            <i class="iconfont icon-liebiao"></i>
+            <div class="same_center">
+                <a href="#">
+                    <i class="iconfont icon-dashboard"></i>
+                    <p>Dashboard</p>
+                </a>
+                <div class="samea">
+                    <div class="samea_up">
+                        <i class="iconfont icon-report"></i>
+                        <p>Reports&nbsp;<i class="iconfont icon-xia"></i></p>
+                    </div>
+                    <div class="show_1">
+                        <a href="#">Daily Report</a>
+                        <a href="#">Weekly Report</a>
+                        <a href="#">Yearly Report</a>
+                    </div>
+                </div>
+                <a href="#">
+                    <i class="iconfont icon-gouwuche"></i>
+                    <p>Dashboard</p>
+                </a>
+                <a href="#">
+                    <i class="iconfont icon-account-outline"></i>
+                    <p>Dashboard</p>
+                </a>
+                <div class="samea">
+                    <div class="samea_up">
+                        <i class="iconfont icon-shezhi1"></i>
+                        <p>Reports&nbsp;<i class="iconfont icon-xia"></i></p>
+                    </div>
+                    <div class="show_1">
+                        <a href="#">Ptofile</a>
+                        <a href="#">Billing</a>
+                        <a href="#">Customize</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- big_blue -->
+<div class="big_blue">
+    <div class="row">
+        <div class="par_log">
+            <h2>Welcome to Dashboard, Login</h2>
+            <div class="log">
+                <form action="index.html" method="post">
+                    <div class="group">
+                        <label>Username</label>
+                        <input type="text" id="username" name="username">
+                    </div>
+                    <div class="group">
+                        <label>Password</label>
+                        <input type="password" id="userpass" name="userpass">
+                    </div>
+                    <button id="bt1" class="group">LOGIN</button>
+                    <button id="bt2">FORGOT YOUR PASSWORD?</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!-- footer -->
+<footer>
+    <p>Copyright &copy; <b>2018</b> &nbsp;All rights reserved. More Templates &nbsp; <a href="#" title="模板之家">模板之家</a>&nbsp; - Collect from &nbsp;<a href="#" title="网页模板">网页模板</a>&nbsp;</p>
+</footer>
+
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $(function(){
+        $(".samea").click(function(event){
+            event.stopPropagation();
+            $(this).find(".show").toggle();
+        })
+        $(document).click(function(){
+            $(".samea").find(".show").hide();
+        });
+    });
+
+    $(function(){
+        $(".samea_up").click(function(){
+            $(this).next(".show_1").toggle();
+        });
+    });
+
+    $(function(){
+        $(".hea_right").click(function(){
+            $(this).find(".same_center").animate({height:"toggle"});
+        });
+        $(document).click(function(){
+            $(".same_center").hide();
+        });
+        $(".hea_right,.same_center").click(function(event){
+            event.stopPropagation();
+        });
+    });
+});
+</script>
